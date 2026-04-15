@@ -1,7 +1,7 @@
 const authService = require("../services/auth.service");
 
 /* REGISTER */
-const register = async (req, res, next) => {
+exports.register = async (req, res, next) => {
   try {
     const user = await authService.registerCustomer(req.body);
 
@@ -16,14 +16,14 @@ const register = async (req, res, next) => {
 };
 
 /* LOGIN */
-const login = async (req, res, next) => {
+exports.login = async (req, res, next) => {
   try {
     const result = await authService.loginUser(
       req.body.phone,
       req.body.password
     );
 
-    res.status(200).json({
+    res.json({
       success: true,
       message: "Login successful",
       data: result
@@ -34,18 +34,16 @@ const login = async (req, res, next) => {
 };
 
 /* REFRESH TOKEN */
-const refreshToken = async (req, res, next) => {
+exports.refreshToken = async (req, res, next) => {
   try {
     const token = await authService.refreshAccessToken(
       req.body.refreshToken
     );
 
-    res.status(200).json({
+    res.json({
       success: true,
       message: "Token refreshed",
-      data: {
-        accessToken: token
-      }
+      data: { accessToken: token }
     });
   } catch (err) {
     next(err);
@@ -53,13 +51,13 @@ const refreshToken = async (req, res, next) => {
 };
 
 /* LOGOUT */
-const logout = async (req, res, next) => {
+exports.logout = async (req, res, next) => {
   try {
     await authService.logoutUser(req.user._id);
 
-    res.status(200).json({
+    res.json({
       success: true,
-      message: "Logged out successfully"
+      message: "Logged out"
     });
   } catch (err) {
     next(err);
@@ -67,13 +65,12 @@ const logout = async (req, res, next) => {
 };
 
 /* GET ME */
-const getMe = async (req, res, next) => {
+exports.getMe = async (req, res, next) => {
   try {
     const user = await authService.getProfile(req.user._id);
 
-    res.status(200).json({
+    res.json({
       success: true,
-      message: "Profile fetched successfully",
       data: user
     });
   } catch (err) {
@@ -82,16 +79,15 @@ const getMe = async (req, res, next) => {
 };
 
 /* UPDATE ME */
-const updateMe = async (req, res, next) => {
+exports.updateMe = async (req, res, next) => {
   try {
     const user = await authService.updateProfile(
       req.user._id,
       req.body
     );
 
-    res.status(200).json({
+    res.json({
       success: true,
-      message: "Profile updated successfully",
       data: user
     });
   } catch (err) {
@@ -100,7 +96,7 @@ const updateMe = async (req, res, next) => {
 };
 
 /* CHANGE PASSWORD */
-const changePassword = async (req, res, next) => {
+exports.changePassword = async (req, res, next) => {
   try {
     await authService.changePassword(
       req.user._id,
@@ -108,21 +104,13 @@ const changePassword = async (req, res, next) => {
       req.body.newPassword
     );
 
-    res.status(200).json({
+    res.json({
       success: true,
-      message: "Password changed successfully"
+      message: "Password changed"
     });
   } catch (err) {
     next(err);
   }
 };
 
-module.exports = {
-  register,
-  login,
-  refreshToken,
-  logout,
-  getMe,
-  updateMe,
-  changePassword
-};
+

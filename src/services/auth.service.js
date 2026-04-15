@@ -25,12 +25,14 @@ const registerCustomer = async (data) => {
 
   const hashed =
     await hashPassword(data.password);
+   console.log("data",data);
 
   const user = await User.create({
     name: data.name,
     phone: data.phone,
     password: hashed,
-    role: "customer"
+    role: "customer",
+    savedAddresses: data.savedAddresses || []
   });
 
   return user;
@@ -165,6 +167,10 @@ const changePassword = async (
   await user.save();
 };
 
+
+
+
+
 module.exports = {
   registerCustomer,
   loginUser,
@@ -172,5 +178,6 @@ module.exports = {
   logoutUser,
   getProfile,
   updateProfile,
-  changePassword
+  changePassword,
+ 
 };

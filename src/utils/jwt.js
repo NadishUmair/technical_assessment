@@ -8,7 +8,7 @@ const generateAccessToken = (user) => {
     },
     process.env.JWT_ACCESS_SECRET,
     {
-      expiresIn: process.env.ACCESS_TOKEN_EXPIRY
+      expiresIn: process.env.JWT_ACCESS_EXPIRES_IN
     }
   );
 };
@@ -20,7 +20,7 @@ const generateRefreshToken = (user) => {
     },
     process.env.JWT_REFRESH_SECRET,
     {
-      expiresIn: process.env.REFRESH_TOKEN_EXPIRY
+      expiresIn: process.env.JWT_REFRESH_EXPIRES_IN
     }
   );
 };

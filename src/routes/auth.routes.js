@@ -7,6 +7,7 @@ const controller =
 
 const protect =
   require("../middlewares/auth.middleware");
+const requireRole = require("../middlewares/requiredRole");
 
 /* PUBLIC */
 
@@ -50,5 +51,8 @@ router.post(
   protect,
   controller.changePassword
 );
+
+
+
 
 module.exports = router;

@@ -6,13 +6,13 @@ const helmet     = require('helmet');
 const morgan     = require('morgan');
 const path       = require('path');
 
-const connectDB        = require('./config/db');
 const { port, nodeEnv } = require('./config/env');
 const errorMiddleware  = require('./middlewares/error.middleware');
 
 
 const authRoutes          = require('./routes/auth.routes');
-const serviceRoutes       = require('./models/services/services.routes');
+const managerRoutes       = require('./routes/manager.routes');
+const serviceRoutes       = require('./routes/services.routes');
 const bookingRoutes       = require('./routes/bookings.routes');
 const workerRoutes        = require('./routes/workers.routes');
 const notificationRoutes  = require('./routes/notifications.routes');
@@ -53,10 +53,11 @@ app.get('/health', (req, res) => {
 const API_PREFIX = '/api/v1';
 
 app.use(`${API_PREFIX}/auth`,          authRoutes);
+app.use(`${API_PREFIX}/managers`,         managerRoutes);
 app.use(`${API_PREFIX}/services`,      serviceRoutes);
 app.use(`${API_PREFIX}/bookings`,      bookingRoutes);
-app.use(`${API_PREFIX}/workers`,       workerRoutes);
-app.use(`${API_PREFIX}/notifications`, notificationRoutes);
+// app.use(`${API_PREFIX}/workers`,       workerRoutes);
+// app.use(`${API_PREFIX}/notifications`, notificationRoutes);
 
 
 app.use((req, res) => {
@@ -67,7 +68,7 @@ app.use((req, res) => {
   });
 });
 
-app.use(errorMiddleware);
+
 
 
 
