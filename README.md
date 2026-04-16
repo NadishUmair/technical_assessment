@@ -1,12 +1,35 @@
+# Home Services Platform - Backend API
 
+## Overview
 
-<!-- Seeded Manager -->
+This project is a **Home Services Platform Backend API** built using:
 
-<!-- Manager Credentials default -->
-Phone: 03000000000
-Password: admin123
+- Node.js
+- Express.js
+- MongoDB (Mongoose)
+- JWT Authentication
+- Role-Based Access Control (RBAC)
 
-run the file in scripts named seedManager to create super manager
-command: node  src/scripts/seedManager.js
+The platform allows:
 
-Base url == http://localhost:5000/api/v1
+- Customers to book home services
+- Managers to assign workers
+- Workers to receive and complete jobs
+
+This project follows a **clean layered architecture** with controllers, services, models, and middlewares.
+
+---
+
+# Tech Stack
+
+- Node.js (v18+)
+- Express.js
+- MongoDB (Mongoose ODM)
+- JWT (Access + Refresh Tokens)
+- bcrypt (Password hashing)
+- dotenv (Environment configuration)
+- express-validator / Joi (Validation)
+
+---
+
+# Base URL
