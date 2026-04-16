@@ -13,7 +13,7 @@ console.log("bookingcontroller",bookingController);
 
 // Create booking
 router.post(
-  "/customer-create-booking",
+  "/",
   protect,
   requireRole("customer"),
   bookingController.createBooking
@@ -21,7 +21,7 @@ router.post(
 
 // Get my bookings (with filters + pagination)
 router.get(
-  "/my-bookings",
+  "/my",
   protect,
   requireRole("customer"),
   bookingController.getMyBookings
@@ -29,14 +29,14 @@ router.get(
 
 // Get single booking
 router.get(
-  "/single-booking/:id",
+  "/:id",
   protect,
   bookingController.getBookingById
 );
 
 // Cancel booking
 router.patch(
-  "/cancel-booking/:id",
+  "/:id/cancel",
   protect,
   requireRole("customer"),
   bookingController.cancelBooking
@@ -57,7 +57,7 @@ router.get(
 
 // Assign / Reassign worker
 router.patch(
-  "/manager-assign-booking/:id",
+  "/manager/bookings/:id/assign",
   protect,
   requireRole("manager"),
   bookingController.assignWorker
@@ -94,7 +94,7 @@ router.get(
 
 // Update booking status
 router.patch(
-  "/worker/bookings-status/:id",
+  "/worker/bookings/:id/status",
   protect,
   requireRole("worker"),
   bookingController.updateBookingStatus
@@ -102,7 +102,7 @@ router.patch(
 
 // Upload photos
 router.post(
-  "/worker/booking-photos/:id",
+  "/worker/bookings/:id/photos",
   protect,
   requireRole("worker"),
   upload.array("photos", 10),

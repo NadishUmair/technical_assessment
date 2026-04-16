@@ -13,7 +13,7 @@ const requireRole = require("../middlewares/requiredRole");
 
 // Public Routes
 router.get(
-  "/all-services",
+  "/services",
   serviceController.getServices
 );
 
@@ -44,14 +44,14 @@ router.patch(
 );
 
 router.patch(
-  "/toggle-service/:id",
+  "/:id/toggle",
   protect,
   requireRole("manager"),
   serviceController.toggleService
 );
 
 router.delete(
-  "/delete-service/:id",
+  "/:id",
   protect,
   requireRole("manager"),
   serviceController.deleteService

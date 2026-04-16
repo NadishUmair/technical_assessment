@@ -93,7 +93,7 @@ exports.managerCancelBooking = async (req, res, next) => {
 
 exports.managerCreateBooking = async (req, res, next) => {
   try {
-    const data = await   managerCreateBooking(req.body);
+    const data = await managerCreateBooking(req.body);
     res.status(201).json({ success: true, data });
   } catch (err) {
     next(err);
