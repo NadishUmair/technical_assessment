@@ -1,0 +1,1024 @@
+{
+  "info": {
+    "_postman_id": "6b812ecd-52c0-4411-861b-2080fa5c5e0d",
+    "name": "Home Services",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "32191491"
+  },
+  "item": [
+    {
+      "name": "auth",
+      "item": [
+        {
+          "name": "customer register",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Nadish Umair\",\r\n  \"phone\": \"03009876543\",\r\n  \"email\": \"nadish@example.com\",\r\n  \"password\": \"123456\",\r\n  \"role\": \"customer\",\r\n  \"profilePhoto\": \"https://i.pravatar.cc/150?img=12\",\r\n  \"savedAddresses\": [\r\n    {\r\n      \"label\": \"Home\",\r\n      \"addressLine\": \"House 12, Street 5\",\r\n      \"city\": \"Lahore\",\r\n      \"coordinates\": {\r\n        \"lat\": 31.5204,\r\n        \"lng\": 74.3587\r\n      }\r\n    }\r\n  ],\r\n  \"loyaltyPoints\": 10\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/register",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"phone\": \"03001112233\",\r\n  \"password\": \"admin123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/login",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "refresh Token",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"refreshToken\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZGY5ZTZjNzQzMjI0MGIxNjhjZjliNyIsImlhdCI6MTc3NjI2NzMwMywiZXhwIjoxNzc2ODcyMTAzfQ.MobEmsZUKvbJFkxSLDeRlTHpDnfFNYifp0_k8tR3Hzk\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/refresh-token",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "refresh-token"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "logout",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZGY5ZTZjNzQzMjI0MGIxNjhjZjliNyIsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTc3NjI2NzMwMywiZXhwIjoxNzc2MjY4MjAzfQ.VzQ3AhRzy6fK3i4QRAGHfWMSZA_ErsiLV5AuVAiS7Fg",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "token",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZGY5ZTZjNzQzMjI0MGIxNjhjZjliNyIsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTc3NjI2NzMwMywiZXhwIjoxNzc2MjY4MjAzfQ.VzQ3AhRzy6fK3i4QRAGHfWMSZA_ErsiLV5AuVAiS7Fg",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"refreshToken\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZGY5ZTZjNzQzMjI0MGIxNjhjZjliNyIsImlhdCI6MTc3NjI2NzMwMywiZXhwIjoxNzc2ODcyMTAzfQ.MobEmsZUKvbJFkxSLDeRlTHpDnfFNYifp0_k8tR3Hzk\"\r\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/logout",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "logout"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "me",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZGY5ZTZjNzQzMjI0MGIxNjhjZjliNyIsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTc3NjI2NzYxMCwiZXhwIjoxNzc2MjY4NTEwfQ.Bnw6iB-EY_I0renpbEMao_34pc5ZjdLHDA4yHHMgt7M",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "token",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZGY5ZTZjNzQzMjI0MGIxNjhjZjliNyIsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTc3NjI2NzMwMywiZXhwIjoxNzc2MjY4MjAzfQ.VzQ3AhRzy6fK3i4QRAGHfWMSZA_ErsiLV5AuVAiS7Fg",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"refreshToken\":\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZGY5ZTZjNzQzMjI0MGIxNjhjZjliNyIsImlhdCI6MTc3NjI2NzMwMywiZXhwIjoxNzc2ODcyMTAzfQ.MobEmsZUKvbJFkxSLDeRlTHpDnfFNYifp0_k8tR3Hzk\"\r\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/me",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "me"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update me",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZGY5ZTZjNzQzMjI0MGIxNjhjZjliNyIsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTc3NjI2NzYxMCwiZXhwIjoxNzc2MjY4NTEwfQ.Bnw6iB-EY_I0renpbEMao_34pc5ZjdLHDA4yHHMgt7M",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "token",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZGY5ZTZjNzQzMjI0MGIxNjhjZjliNyIsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTc3NjI2NzMwMywiZXhwIjoxNzc2MjY4MjAzfQ.VzQ3AhRzy6fK3i4QRAGHfWMSZA_ErsiLV5AuVAiS7Fg",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Nadish Umair\",\r\n  \"phone\": \"03009876543\",\r\n  \"email\": \"nadish@example.com\",\r\n  \"savedAddresses\": [\r\n    {\r\n      \"label\": \"Home\",\r\n      \"addressLine\": \"House 45, Street 12, DHA Phase 6\",\r\n      \"city\": \"Lahore\",\r\n      \"coordinates\": {\r\n        \"lat\": 31.5204,\r\n        \"lng\": 74.3587\r\n      }\r\n    },\r\n    {\r\n      \"label\": \"Office\",\r\n      \"addressLine\": \"Office 22, Gulberg III\",\r\n      \"city\": \"Lahore\",\r\n      \"coordinates\": {\r\n        \"lat\": 31.5100,\r\n        \"lng\": 74.3441\r\n      }\r\n    }\r\n  ]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/me",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "me"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "change password",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZGY5ZTZjNzQzMjI0MGIxNjhjZjliNyIsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTc3NjI2NzYxMCwiZXhwIjoxNzc2MjY4NTEwfQ.Bnw6iB-EY_I0renpbEMao_34pc5ZjdLHDA4yHHMgt7M",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "token",
+                "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZGY5ZTZjNzQzMjI0MGIxNjhjZjliNyIsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTc3NjI2NzMwMywiZXhwIjoxNzc2MjY4MjAzfQ.VzQ3AhRzy6fK3i4QRAGHfWMSZA_ErsiLV5AuVAiS7Fg",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"oldPassword\": \"123456\",\r\n  \"newPassword\": \"789456\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/auth/change-password",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "auth",
+                "change-password"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "manager",
+      "item": [
+        {
+          "name": "create manager",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZGZiYzE0ZTY5ZGQ0NTM1MTcyNDM2YSIsInJvbGUiOiJtYW5hZ2VyIiwiaWF0IjoxNzc2MjcxNzcxLCJleHAiOjE3NzYyNzI2NzF9.WCbodP3RvvAn3TwR5wb2Ycin2S-c-xBNgFqa-9ULDuk",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Second Manager\",\r\n  \"phone\": \"03001112233\",\r\n  \"email\": \"manager2@example.com\",\r\n  \"password\": \"admin123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/managers/create-manager",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "managers",
+                "create-manager"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "create worker",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZGZiYzE0ZTY5ZGQ0NTM1MTcyNDM2YSIsInJvbGUiOiJtYW5hZ2VyIiwiaWF0IjoxNzc2MjcxNzcxLCJleHAiOjE3NzYyNzI2NzF9.WCbodP3RvvAn3TwR5wb2Ycin2S-c-xBNgFqa-9ULDuk",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Ahmed Worker\",\r\n  \"phone\": \"03007778899\",\r\n  \"email\": \"worker@example.com\",\r\n  \"password\": \"worker123\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/managers/create-worker",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "managers",
+                "create-worker"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "service",
+      "item": [
+        {
+          "name": "create-service",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZGZiYzE0ZTY5ZGQ0NTM1MTcyNDM2YSIsInJvbGUiOiJtYW5hZ2VyIiwiaWF0IjoxNzc2Mjc0ODAwLCJleHAiOjE3NzYyNzU3MDB9.9z8Z83l68hr7pOEobqz2hQt7zHz-nlvItKu0t0J1PpU",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Electrical Repair\",\r\n  \"category\": \"Electrical\",\r\n  \"description\": \"Repair of switches, wiring, fans, and other electrical fixtures\",\r\n  \"basePrice\": 1800,\r\n  \"estimatedDurationMinutes\": 90,\r\n  \"requiredTeamSize\": 1,\r\n  \"photos\": [\r\n    \"https://example.com/electric1.jpg\",\r\n    \"https://example.com/electric2.jpg\"\r\n  ],\r\n  \"tags\": [\r\n    \"electrical\",\r\n    \"repair\",\r\n    \"wiring\"\r\n  ]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/services/create-service",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "services",
+                "create-service"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "all services",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZGZiYzE0ZTY5ZGQ0NTM1MTcyNDM2YSIsInJvbGUiOiJtYW5hZ2VyIiwiaWF0IjoxNzc2Mjc0ODAwLCJleHAiOjE3NzYyNzU3MDB9.9z8Z83l68hr7pOEobqz2hQt7zHz-nlvItKu0t0J1PpU",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{base_url}}/services/services?page=1&limit=2",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "services",
+                "services"
+              ],
+              "query": [
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "2"
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "service by slug",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZGZiYzE0ZTY5ZGQ0NTM1MTcyNDM2YSIsInJvbGUiOiJtYW5hZ2VyIiwiaWF0IjoxNzc2Mjc0ODAwLCJleHAiOjE3NzYyNzU3MDB9.9z8Z83l68hr7pOEobqz2hQt7zHz-nlvItKu0t0J1PpU",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{base_url}}/services/ac-cleaning",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "services",
+                "ac-cleaning"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "all categories",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZGZiYzE0ZTY5ZGQ0NTM1MTcyNDM2YSIsInJvbGUiOiJtYW5hZ2VyIiwiaWF0IjoxNzc2Mjc0ODAwLCJleHAiOjE3NzYyNzU3MDB9.9z8Z83l68hr7pOEobqz2hQt7zHz-nlvItKu0t0J1PpU",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": ""
+            },
+            "url": {
+              "raw": "{{base_url}}/services/categories",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "services",
+                "categories"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "update service",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZGZiYzE0ZTY5ZGQ0NTM1MTcyNDM2YSIsInJvbGUiOiJtYW5hZ2VyIiwiaWF0IjoxNzc2Mjc2NDA3LCJleHAiOjE3NzYyODAwMDd9.BR39FLQ19ewx-1F9UqXiMqCtcL8rocoJhFRUBSwl-2A",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Update Service\",\r\n  \"category\": \"Electrical\",\r\n  \"description\": \"Repair of switches, wiring, fans, and other electrical fixtures\",\r\n  \"basePrice\": 1800,\r\n  \"estimatedDurationMinutes\": 90,\r\n  \"requiredTeamSize\": 1,\r\n  \"photos\": [\r\n    \"https://example.com/electric1.jpg\",\r\n    \"https://example.com/electric2.jpg\"\r\n  ],\r\n  \"tags\": [\r\n    \"electrical\",\r\n    \"repair\",\r\n    \"wiring\"\r\n  ]\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/services/update-service/69dfcfbac1f00120f4a649a6",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "services",
+                "update-service",
+                "69dfcfbac1f00120f4a649a6"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "toggle active service",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZGZiYzE0ZTY5ZGQ0NTM1MTcyNDM2YSIsInJvbGUiOiJtYW5hZ2VyIiwiaWF0IjoxNzc2Mjc2NDA3LCJleHAiOjE3NzYyODAwMDd9.BR39FLQ19ewx-1F9UqXiMqCtcL8rocoJhFRUBSwl-2A",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Update Service\",\r\n  \"category\": \"Electrical\",\r\n  \"description\": \"Repair of switches, wiring, fans, and other electrical fixtures\",\r\n  \"basePrice\": 1800,\r\n  \"estimatedDurationMinutes\": 90,\r\n  \"requiredTeamSize\": 1,\r\n  \"photos\": [\r\n    \"https://example.com/electric1.jpg\",\r\n    \"https://example.com/electric2.jpg\"\r\n  ],\r\n  \"tags\": [\r\n    \"electrical\",\r\n    \"repair\",\r\n    \"wiring\"\r\n  ]\r\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/services/69dfcfbac1f00120f4a649a6/toggle",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "services",
+                "69dfcfbac1f00120f4a649a6",
+                "toggle"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "delete service",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZGZiYzE0ZTY5ZGQ0NTM1MTcyNDM2YSIsInJvbGUiOiJtYW5hZ2VyIiwiaWF0IjoxNzc2Mjc2NDA3LCJleHAiOjE3NzYyODAwMDd9.BR39FLQ19ewx-1F9UqXiMqCtcL8rocoJhFRUBSwl-2A",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Update Service\",\r\n  \"category\": \"Electrical\",\r\n  \"description\": \"Repair of switches, wiring, fans, and other electrical fixtures\",\r\n  \"basePrice\": 1800,\r\n  \"estimatedDurationMinutes\": 90,\r\n  \"requiredTeamSize\": 1,\r\n  \"photos\": [\r\n    \"https://example.com/electric1.jpg\",\r\n    \"https://example.com/electric2.jpg\"\r\n  ],\r\n  \"tags\": [\r\n    \"electrical\",\r\n    \"repair\",\r\n    \"wiring\"\r\n  ]\r\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/services/69dfcf2fc1f00120f4a649a5",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "services",
+                "69dfcf2fc1f00120f4a649a5"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "bookings",
+      "item": [
+        {
+          "name": "customer create booking",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZGY5ZTZjNzQzMjI0MGIxNjhjZjliNyIsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTc3NjI4NzE1MiwiZXhwIjoxNzc2MjkwNzUyfQ.lf3xvnrRCxoUe9TzyL85nvsL4AF3bHAgQzXrUOAwNpE",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"service\": \"69dfcfbac1f00120f4a649a6\",\r\n  \"scheduledDate\": \"2026-04-25\",\r\n  \"timeSlot\": \"10:00 AM - 12:00 PM\",\r\n  \"address\": {\r\n    \"street\": \"123 Main Street\",\r\n    \"city\": \"Lahore\",\r\n    \"state\": \"Punjab\"\r\n  },\r\n  \"problemDescription\": \"AC not cooling properly.\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/bookings",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "bookings"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "customer bookings",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZGY5ZTZjNzQzMjI0MGIxNjhjZjliNyIsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTc3NjI4MjYwNCwiZXhwIjoxNzc2Mjg2MjA0fQ.3dUvX-jNznvrnpAx1wMd-xB3kwet1s_QYpAnFpRZrSM",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"service\": \"69dfcfbac1f00120f4a649a6\",\r\n  \"scheduledDate\": \"2026-04-25\",\r\n  \"timeSlot\": \"10:00 AM - 12:00 PM\",\r\n  \"address\": {\r\n    \"street\": \"123 Main Street\",\r\n    \"city\": \"Lahore\",\r\n    \"state\": \"Punjab\"\r\n  },\r\n  \"problemDescription\": \"AC not cooling properly.\"\r\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/bookings/my",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "bookings",
+                "my"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "single booking",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZGY5ZTZjNzQzMjI0MGIxNjhjZjliNyIsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTc3NjI4MjYwNCwiZXhwIjoxNzc2Mjg2MjA0fQ.3dUvX-jNznvrnpAx1wMd-xB3kwet1s_QYpAnFpRZrSM",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"service\": \"69dfcfbac1f00120f4a649a6\",\r\n  \"scheduledDate\": \"2026-04-25\",\r\n  \"timeSlot\": \"10:00 AM - 12:00 PM\",\r\n  \"address\": {\r\n    \"street\": \"123 Main Street\",\r\n    \"city\": \"Lahore\",\r\n    \"state\": \"Punjab\"\r\n  },\r\n  \"problemDescription\": \"AC not cooling properly.\"\r\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/bookings/69dff746a3bb07922a25f6f3",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "bookings",
+                "69dff746a3bb07922a25f6f3"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "cancel booking",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZGY5ZTZjNzQzMjI0MGIxNjhjZjliNyIsInJvbGUiOiJjdXN0b21lciIsImlhdCI6MTc3NjI4MjYwNCwiZXhwIjoxNzc2Mjg2MjA0fQ.3dUvX-jNznvrnpAx1wMd-xB3kwet1s_QYpAnFpRZrSM",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"service\": \"69dfcfbac1f00120f4a649a6\",\r\n  \"scheduledDate\": \"2026-04-25\",\r\n  \"timeSlot\": \"10:00 AM - 12:00 PM\",\r\n  \"address\": {\r\n    \"street\": \"123 Main Street\",\r\n    \"city\": \"Lahore\",\r\n    \"state\": \"Punjab\"\r\n  },\r\n  \"problemDescription\": \"AC not cooling properly.\"\r\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/bookings/manager/bookings/69dff746a3bb07922a25f6f3/cancel",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "bookings",
+                "manager",
+                "bookings",
+                "69dff746a3bb07922a25f6f3",
+                "cancel"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "manager create booking",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZGZjMmE3MWExYjU5ZDczNWE0ZmUyNCIsInJvbGUiOiJtYW5hZ2VyIiwiaWF0IjoxNzc2MzMxMjk0LCJleHAiOjE3NzYzNjAwOTR9.E1p4viQFJSikN-vhX5Uz7UDBZxseKHFzR7YyW3aPLU4",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"service\": \"69dfcfbac1f00120f4a649a6\",\r\n  \"customer\": \"69df9e6c7432240b168cf9b7\",\r\n  \"scheduledDate\": \"2026-04-25\",\r\n  \"timeSlot\": \"10:00 AM - 12:00 PM\",\r\n  \"address\": {\r\n    \"street\": \"123 Main Street\",\r\n    \"city\": \"Lahore\",\r\n    \"state\": \"Punjab\"\r\n  },\r\n  \"problemDescription\": \"AC not cooling properly.\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/bookings/manager/bookings",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "bookings",
+                "manager",
+                "bookings"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "manager assign booking",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZGZiYzE0ZTY5ZGQ0NTM1MTcyNDM2YSIsInJvbGUiOiJtYW5hZ2VyIiwiaWF0IjoxNzc2Mjg3MjY1LCJleHAiOjE3NzYyOTA4NjV9.-iXE_uvQ7fen-4bSX5zhYgHU2Z5kvLSoobj-CDoE8wY",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"workerId\":\"69dfc3121a1b59d735a4fe25\"\r\n\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/bookings/manager/bookings/69dffde2b90b46c0db6c2c61/assign",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "bookings",
+                "manager",
+                "bookings",
+                "69dffde2b90b46c0db6c2c61",
+                "assign"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "manager bookings",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZGZiYzE0ZTY5ZGQ0NTM1MTcyNDM2YSIsInJvbGUiOiJtYW5hZ2VyIiwiaWF0IjoxNzc2Mjg3MjY1LCJleHAiOjE3NzYyOTA4NjV9.-iXE_uvQ7fen-4bSX5zhYgHU2Z5kvLSoobj-CDoE8wY",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"workerId\":\"69dfc3121a1b59d735a4fe25\"\r\n\r\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/bookings/manager/bookings",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "bookings",
+                "manager",
+                "bookings"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "worker bookings",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZGZjMzEyMWExYjU5ZDczNWE0ZmUyNSIsInJvbGUiOiJ3b3JrZXIiLCJpYXQiOjE3NzYyODc5MDMsImV4cCI6MTc3NjI5MTUwM30.-LnT4ztbQXnUGdMAvd84j0sK-xGxQ84wfhjaXmmY33Y",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"workerId\":\"69dfc3121a1b59d735a4fe25\"\r\n\r\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/bookings/worker/bookings",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "bookings",
+                "worker",
+                "bookings"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "worker booking status",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZGZjMzEyMWExYjU5ZDczNWE0ZmUyNSIsInJvbGUiOiJ3b3JrZXIiLCJpYXQiOjE3NzYyODc5MDMsImV4cCI6MTc3NjI5MTUwM30.-LnT4ztbQXnUGdMAvd84j0sK-xGxQ84wfhjaXmmY33Y",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"status\":\"completed\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/bookings/worker/bookings/69dffde2b90b46c0db6c2c61/status",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "bookings",
+                "worker",
+                "bookings",
+                "69dffde2b90b46c0db6c2c61",
+                "status"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "booking photos",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZGZjMzEyMWExYjU5ZDczNWE0ZmUyNSIsInJvbGUiOiJ3b3JrZXIiLCJpYXQiOjE3NzYyODc5MDMsImV4cCI6MTc3NjI5MTUwM30.-LnT4ztbQXnUGdMAvd84j0sK-xGxQ84wfhjaXmmY33Y",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "photos",
+                  "type": "file",
+                  "uuid": "bfdbedf1-5376-41dc-b637-3716a04560c8",
+                  "src": "/C:/Users/Admin/Desktop/portrait-two-professional-workers-industrial-260nw-2150368229.webp"
+                },
+                {
+                  "key": "photos",
+                  "type": "file",
+                  "uuid": "4de56d5c-5a2c-4d74-bfc1-aabf13075471",
+                  "src": "/C:/Users/Admin/Desktop/istockphoto-1516511531-612x612.jpg"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/bookings/worker/bookings/69dffde2b90b46c0db6c2c61/photos",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "bookings",
+                "worker",
+                "bookings",
+                "69dffde2b90b46c0db6c2c61",
+                "photos"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "booking payment",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ZGZjMzEyMWExYjU5ZDczNWE0ZmUyNSIsInJvbGUiOiJ3b3JrZXIiLCJpYXQiOjE3NzYyOTU0OTUsImV4cCI6MTc3NjMyNDI5NX0.kyIXRFNvEpUHMdEh5v9AFtib1eyNkOjmz1GbWJOiQSU",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PATCH",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \"status\":\"received\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{base_url}}/bookings/worker/bookings/69dffde2b90b46c0db6c2c61/payment",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "bookings",
+                "worker",
+                "bookings",
+                "69dffde2b90b46c0db6c2c61",
+                "payment"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
